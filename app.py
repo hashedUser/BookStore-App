@@ -23,6 +23,7 @@ def menu():
         if user_input == 'd':
             prompt_delete_book()
 
+
 def prompt_add_book():
     book_name = input("Enter the name of the book: ")
     author_name = input("Enter the name of the author: ")
