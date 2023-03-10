@@ -1,6 +1,12 @@
 books = []
 
-
+""" 
+Next Commit Changes:
+Add file integration so that the database won't be a 
+python list, but it would be a file on the storage
+so that for every execution the file will be changed
+and wouldn't be reset to its original form
+"""
 def add_book(book, author):
     books.append({'name': book, 'author': author, 'read': False})
 
