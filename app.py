@@ -13,7 +13,8 @@ Your Choice:"""
 
 def menu():
     user_input = input(USER_CHOICE)
-
+    while user_input != 'q':
+        pass
 
 
 
