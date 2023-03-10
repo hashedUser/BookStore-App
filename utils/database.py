@@ -1,8 +1,8 @@
 books = []
 
 
-def add_book(book, author):
-    books.append({'name': book, 'author': author, 'read': False})
+def add_book(book):
+    books.append(book)
     return books
 
 
