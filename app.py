@@ -15,33 +15,41 @@ def menu():
     user_input = input(USER_CHOICE)
     while user_input != 'q':
         if user_input == 'a':
-            database.add_book(prompt_add_book())
-        if user_input == 'l':
+            prompt_add_book()
+        elif user_input == 'l':
             list_books()
-        if user_input == 'r':
+        elif user_input == 'r':
             prompt_read_book()
-        if user_input == 'd':
+        elif user_input == 'd':
             prompt_delete_book()
+        else:
+            print("Unknown command please try again")
+
+        user_input = input(USER_CHOICE)
 
 
 def prompt_add_book():
-    book_name = input("Enter the name of the book: ")
-    author_name = input("Enter the name of the author: ")
-    return {'name': book_name, 'author': author_name, 'read': False}
+    book_name = input("Enter the new book name: ")
+    author_name = input("Enter the new book author: ")
+    database.add_book(book_name, author_name)
 
 
 def list_books():
-    database.retrieve_books()
+    books = database.retrieve_books()
+    for book in books:
+        print(book)
 
 
 def prompt_read_book():
-    book_name = input("Enter the name of the book that needs to be marked as read: ")
-    database.mark_as_read(book_name)
+    book_name = input("Enter the name of the book that you just finished reading: ")
+    author_name = input("Enter the name of the author of the book that you finished reading: ")
+    database.mark_as_read(book_name, author_name)
 
 
 def prompt_delete_book():
-    book_name = input("Enter the name of the book that needs to be deleted: ")
-    database.delete_book(book_name)
+    book_name = input("Enter the name of the book that needs to be removed: ")
+    author_name = input("Enter the author's name whose book needs to be removed: ")
+    database.delete_book(book_name, author_name)
 
 
 menu()
