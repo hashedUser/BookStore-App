@@ -24,10 +24,10 @@ def retrieve_books():
 
 
 # mark something as read will change the read from false to true
-def mark_as_read(book_name, author_name):
+def mark_as_read(book_name):
     books = retrieve_books()
     for book in books:
-        if book['name'] == book_name & book['author'] == author_name:
+        if book['name'] == book_name:
             book['read'] = "1"
     _save_all_books(books)
 
@@ -38,7 +38,7 @@ def _save_all_books(books):
             file.write(f"{book['name']},{book['author']},{book['read']}\n")
 
 
-def delete_book(book_name, author_name):
+def delete_book(book_name):
     books = retrieve_books()
-    books_new = [book for book in books if book['name'] != book_name & book['author'] != author_name]
+    books_new = [book for book in books if book['name'] != book_name]
     _save_all_books(books_new)
