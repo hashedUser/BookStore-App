@@ -38,6 +38,7 @@ def _save_all_books(books):
             file.write(f"{book['name']},{book['author']},{book['read']}\n")
 
 
-
 def delete_book(book_name, author_name):
-    ...
+    books = retrieve_books()
+    books_new = [book for book in books if book['name'] != book_name & book['author'] != author_name]
+    _save_all_books(books_new)
